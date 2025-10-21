@@ -1,11 +1,18 @@
 ---
 
 esphome:
-  name: $devicename
-  firendly_name: $friendly_name
+  name: $name
+  friendly_name: $friendly_name
+  min_version: 2025.7.0
 
 esp32:
   board: m5stack-atom
+  framework:
+    # Arduino framework has faster compilation but 
+    # uses more RAM and Flash; ESP-IDF framework has 
+    # slower compilation but uses less RAM and FLash
+    type: esp-idf
+    # type: arduino
 
 uart:
   tx_pin: GPIO19
