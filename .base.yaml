@@ -14,8 +14,8 @@ improv_serial:
 logger:
 
 # Enable Home Assistant API
-api:
-  password: !secret_esphome_api_passsword
+# api:
+#   password: !secret_esphome_api_passsword
 
-ota:
-  password: !secret_esphome_api_passsword
+# ota:
+#   password: !secret_esphome_api_passsword
