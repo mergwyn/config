@@ -360,7 +360,13 @@ interval:
       # number of components - they will be batched into
       # groups of up to 10 messages before being sent,
       - samsung_nasa.request_read:
-          id: [fsv_2011, fsv_2012, fsv_2021, fsv_2022]
+          id: &fsvs
+            - fsv_2011
+            - fsv_2012
+            - fsv_2021
+            - fsv_2022
+            - fsv_2091
+            - fsv_2902
 
 button:
   - platform: template
@@ -368,4 +374,4 @@ button:
     entity_category: config
     on_press:
       - samsung_nasa.request_read:
-          id: [fsv_2011, fsv_2012, fsv_2021, fsv_2022]
+          id: *fsvs
