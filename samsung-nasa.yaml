@@ -20,7 +20,7 @@ ota:
   - platform: web_server
   - platform: esphome
 
-# This creates a HA style local web page 
+# This creates a HA style local web page
 web_server:
   port: 80
   version: 3
@@ -84,6 +84,17 @@ select:
     nasa_device_id: nasa_device_1
     name: Hot Water Mode
     id: hotwater_mode
+  # Added
+  - platform: samsung_nasa
+    fsv: 2091
+    name: External Thermostat Application (WL1)
+    nasa_device_id: nasa_device_1
+    id: fsv_2091
+  - platform: samsung_nasa
+    fsv: 2092
+    nasa_device_id: nasa_device_1
+    name: External Thermostat Application (WL2)
+    id: fsv_2092
 
 switch:
   - platform: samsung_nasa
@@ -130,22 +141,22 @@ sensor:
   # 0x408A: ENUM_IN_2WAY_VALVE
   # 3 = OFF
   # 2 = zone 1 ON
-  # 1 = zone 2 ON 
+  # 1 = zone 2 ON
   # 0 = all ON
-  # On MIM board  2-way valves 
+  # On MIM board  2-way valves
   # are connected to Pins B9/B10,
   # B13/B14 (switched live output)
   #        0    1    2   3
   #  B09  OFF  ON   OFF  ON
   #  B10  ON   OFF  ON   OFF
   #  B13  OFF  OFF  ON   ON
-  #. B14  ON   ON   OFF  OFF    
+  #  B14  ON   ON   OFF  OFF
   - platform: samsung_nasa
     message: 0x408A
     nasa_device_id: nasa_device_1
     name: 2-Way Valve
     internal: true
-    id: two_way_valve 
+    id: two_way_valve
   # 0x4067
   # 0 = room; 1 = tank
   - platform: samsung_nasa
@@ -153,7 +164,7 @@ sensor:
     nasa_device_id: nasa_device_1
     name: 3-Way Valve
     internal: true
-    id: three_way_valve     
+    id: three_way_valve
   # 0x4089
   # 0 = off; 1 =  on
   - platform: samsung_nasa
@@ -286,7 +297,7 @@ binary_sensor:
     message: 0x8010
     nasa_device_id: nasa_device_2
     name: Compressor Status
-    id: compressor_status 
+    id: compressor_status
 
 climate:
   - platform: samsung_nasa
@@ -308,45 +319,45 @@ climate:
         target_temperature: 0.5
         current_temperature: 0.1
 
-  - platform: samsung_nasa
-    name: Ground Floor Heating
-    id: climate_ground_floor
-    power_switch_id: zone_power
-    current_temp_sensor_id: zone_room_temp
-    target_temp_number_id: zone_target_temp
-    action_mode_sensor:
-      id: two_way_valve
-      mappings:
-        0: CLIMATE_ACTION_HEATING
-        1: CLIMATE_ACTION_IDLE
-        2: CLIMATE_ACTION_HEATING
-        3: CLIMATE_ACTION_IDLE
-    visual:
-      min_temperature: 16
-      max_temperature: 30
-      temperature_step:
-        target_temperature: 0.5
-        current_temperature: 0.1
-
-  - platform: samsung_nasa
-    name: First Floor Heating
-    id: climate_first_floor
-    power_switch_id: zone2_power
-    current_temp_sensor_id: zone2_room_temp
-    target_temp_number_id:  zone2_target_temp
-    action_mode_sensor:
-      id: two_way_valve
-      mappings:
-        0: CLIMATE_ACTION_HEATING
-        1: CLIMATE_ACTION_HEATING
-        2: CLIMATE_ACTION_IDLE
-        3: CLIMATE_ACTION_IDLE
-    visual:
-      min_temperature: 16
-      max_temperature: 30
-      temperature_step:
-        target_temperature: 0.5
-        current_temperature: 0.1        
+#  - platform: samsung_nasa
+#    name: Ground Floor Heating
+#    id: climate_ground_floor
+#    power_switch_id: zone_power
+#    current_temp_sensor_id: zone_room_temp
+#    target_temp_number_id: zone_target_temp
+#    action_mode_sensor:
+#      id: two_way_valve
+#      mappings:
+#        0: CLIMATE_ACTION_HEATING
+#        1: CLIMATE_ACTION_IDLE
+#        2: CLIMATE_ACTION_HEATING
+#        3: CLIMATE_ACTION_IDLE
+#    visual:
+#      min_temperature: 16
+#      max_temperature: 30
+#      temperature_step:
+#        target_temperature: 0.5
+#        current_temperature: 0.1
+#
+#  - platform: samsung_nasa
+#    name: First Floor Heating
+#    id: climate_first_floor
+#    power_switch_id: zone2_power
+#    current_temp_sensor_id: zone2_room_temp
+#    target_temp_number_id:  zone2_target_temp
+#    action_mode_sensor:
+#      id: two_way_valve
+#      mappings:
+#        0: CLIMATE_ACTION_HEATING
+#        1: CLIMATE_ACTION_HEATING
+#        2: CLIMATE_ACTION_IDLE
+#        3: CLIMATE_ACTION_IDLE
+#    visual:
+#      min_temperature: 16
+#      max_temperature: 30
+#      temperature_step:
+#        target_temperature: 0.5
+#        current_temperature: 0.1
 
 interval:
   - interval: 30min
