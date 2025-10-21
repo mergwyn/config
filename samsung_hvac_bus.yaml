@@ -1,12 +1,10 @@
 ---
-
-## BASIC CONFIGURATION
-esphome:
+substitutions:
   name: samsung-ashp
   friendly_name: "Samsung ASHP"
 
-esp32:
-  board: m5stack-atom
+<<: !include .base.yaml
+<<: !include .base-atom.yaml
 
 web_server:
   port: 80
@@ -16,9 +14,6 @@ logger:
   logs:
     # Remove the "Your component takes to long to respond warning"
     component: ERROR
-
-# Enable native API for communication with Home Assistant
-api:
 
 # Enable OTA firmware update
 ota:
@@ -38,22 +33,11 @@ wifi:
   # TODO secret
   domain: .theclarkhome.com
 
-# captive_portal:
-
-uart:
-  tx_pin: GPIO19   # Use GPIO26 for ATOM Tail485
-  rx_pin: GPIO22   # Use GPIO32 for ATOM Tail485
-  baud_rate: 9600
-  parity: EVEN
-
 ## SAMSUNG AC CONFIGURATION
 
 external_components:
   - source: github://omerfaruk-aran/esphome_samsung_hvac_bus@main
     components: [samsung_ac]
-  # - source: github://oxan/esphome-stream-server
-
-# stream_server:
 
 samsung_ac:
   debug_log_undefined_messages: false  # Log the undefined messages
