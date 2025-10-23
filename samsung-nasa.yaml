@@ -1,6 +1,6 @@
 ---
 substitutions:
-  name: samsung-ashp  # TODO change to new host when it arrives
+  name: samsung-ashp-dev  # TODO change to new host when it arrives
   friendly_name: Heat Pump
 
 <<: !include .base.yaml
@@ -60,23 +60,33 @@ number:
   - platform: samsung_nasa
     fsv: 2011
     nasa_device_id: nasa_device_1
-    name: Water Law (Outdoor Temp) High
+    name: Water Law Outdoor Temp High
     id: fsv_2011
   - platform: samsung_nasa
     fsv: 2012
     nasa_device_id: nasa_device_1
-    name: Water Law (Outdoor Temp) Low
+    name: Water Law Outdoor Temp Low
     id: fsv_2012
   - platform: samsung_nasa
     fsv: 2021
     nasa_device_id: nasa_device_1
-    name: Water Law (Flow Temp) High
+    name: Water Law Floor Flow Temp High
     id: fsv_2021
   - platform: samsung_nasa
     fsv: 2022
     nasa_device_id: nasa_device_1
-    name: Water Law (Flow Temp) Low
+    name: Water Law Floor Flow Temp Low
     id: fsv_2022
+  - platform: samsung_nasa
+    fsv: 2031
+    nasa_device_id: nasa_device_1
+    name: Water Law FCU Flow Temp High
+    id: fsv_2031
+  - platform: samsung_nasa
+    fsv: 2032
+    nasa_device_id: nasa_device_1
+    name: Water Law FCU Flow Temp Low
+    id: fsv_2032
 
 select:
   - platform: samsung_nasa
@@ -376,6 +386,8 @@ interval:
             - fsv_2012
             - fsv_2021
             - fsv_2022
+            - fsv_2031
+            - fsv_2032
             - fsv_2091
             - fsv_2092
 
