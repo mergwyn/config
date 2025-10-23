@@ -1,6 +1,6 @@
 ---
 substitutions:
-  name: samsung_nasa
+  name: samsung-ashp  # TODO change to new host
   friendly_name: Heat Pump
 
 <<: !include .base.yaml
@@ -377,7 +377,7 @@ interval:
             - fsv_2021
             - fsv_2022
             - fsv_2091
-            - fsv_2902
+            - fsv_2092
 
 button:
   - platform: template
