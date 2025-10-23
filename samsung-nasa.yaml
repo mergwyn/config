@@ -1,6 +1,6 @@
 ---
 substitutions:
-  name: samsung-ashp  # TODO change to new host
+  name: samsung-ashp  # TODO change to new host when it arrives
   friendly_name: Heat Pump
 
 <<: !include .base.yaml
