@@ -1,6 +1,6 @@
 ---
 substitutions:
-  name: samsung-ashp-dev  # TODO change to new host when it arrives
+  name: samsung-ashp  # TODO change to new host when it arrives
   friendly_name: Heat Pump
 
 <<: !include .base.yaml
@@ -211,6 +211,11 @@ sensor:
     nasa_device_id: nasa_device_1
     name: Power Produced Last Minute
     id: heat_generated_last_min
+  - platform: samsung_nasa
+    message: 0x4284
+    nasa_device_id: nasa_device_1
+    name: Indoor Power Comsumed Last Min
+    id: indoor_power_consumed_last_min
 
   # Outdoor & Flow Temperatures
   - platform: samsung_nasa
@@ -231,6 +236,11 @@ sensor:
     nasa_device_id: nasa_device_1
     name: Flow Temp Return
     id: zone_flow_return_temp
+  - platform: samsung_nasa
+    message: 0x427f
+    nasa_device_id: nasa_device_1
+    name: Flow Temp WL Target
+    id: flow_temp_WL_target
 
   # Performance
   - platform: template
