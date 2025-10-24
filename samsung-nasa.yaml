@@ -111,19 +111,19 @@ switch:
     message: 0x4065
     nasa_device_id: nasa_device_1
     name: "DHW Power"
-    internal: true
+    internal: false
     id: dhw_power_switch
   - platform: samsung_nasa
     message: 0x4000
     nasa_device_id: nasa_device_1
     name: Zone 1 Power
-    internal: true
+    internal: false
     id: zone_power
   - platform: samsung_nasa
     message: 0x411E
     nasa_device_id: nasa_device_1
     name: Zone 2 Power
-    internal: true
+    internal: false
     id: zone2_power
 
 sensor:
