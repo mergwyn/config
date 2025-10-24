@@ -87,6 +87,11 @@ number:
     nasa_device_id: nasa_device_1
     name: Water Law FCU Flow Temp Low
     id: fsv_2032
+  #- platform: samsung_nasa
+  #  message: 0x4248
+  #  nasa_device_id: nasa_device_1
+  #  name: Water Law Offset
+  #  id: water_law_offset
 
 select:
   - platform: samsung_nasa
@@ -111,7 +116,7 @@ switch:
     message: 0x4065
     nasa_device_id: nasa_device_1
     name: "DHW Power"
-    internal: false
+    internal: true
     id: dhw_power_switch
   - platform: samsung_nasa
     message: 0x4000
@@ -173,7 +178,7 @@ sensor:
     message: 0x4067
     nasa_device_id: nasa_device_1
     name: 3-Way Valve
-    internal: true
+    internal: false
     id: three_way_valve
   # 0x4089
   # 0 = off; 1 =  on
@@ -181,8 +186,7 @@ sensor:
     message: 0x4089
     nasa_device_id: nasa_device_1
     name: Primary Water Pump
-    internal: true
-    id: primary_water_pump
+    internal: false    id: primary_water_pump
 
   # Error Status
   - platform: samsung_nasa
