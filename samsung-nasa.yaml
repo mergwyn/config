@@ -214,7 +214,7 @@ sensor:
   - platform: samsung_nasa
     message: 0x4284
     nasa_device_id: nasa_device_1
-    name: Indoor Power Comsumed Last Min
+    name: Indoor Power Consumed Last Min
     id: indoor_power_consumed_last_min
 
   # Outdoor & Flow Temperatures
@@ -237,7 +237,7 @@ sensor:
     name: Flow Temp Return
     id: zone_flow_return_temp
   - platform: samsung_nasa
-    message: 0x427f
+    message: 0x427F
     nasa_device_id: nasa_device_1
     name: Flow Temp WL Target
     id: flow_temp_WL_target
