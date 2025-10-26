@@ -105,6 +105,9 @@ number:
     name: Water Law Offset
     nasa_device_id: nasa_device_1
     id: water_law_offset
+    min_val: -5.0
+    max_val: 5.0
+    step: 0.5
 
 select:
   - platform: samsung_nasa
