@@ -59,6 +59,11 @@ number:
     nasa_device_id: nasa_device_1
     id: hot_water_max_temp
   - platform: samsung_nasa
+    message: 0x4253
+    name: DHW Min Temperature
+    nasa_device_id: nasa_device_1
+    id: hot_water_min_temp
+  - platform: samsung_nasa
     message: 0x4235
     name: DHW Target Temperature
     internal: true
