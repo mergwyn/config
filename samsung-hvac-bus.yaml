@@ -171,7 +171,7 @@ samsung_ac:
           device_class: energy
           state_class: measurement
           accuracy_decimals: 1
-          unit_of_measurement: W
+          unit_of_measurement: Wh
           filters:
             - lambda: !lambda |
                 return (int16_t) x;
