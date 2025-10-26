@@ -40,17 +40,29 @@ samsung_nasa:
 
 number:
   - platform: samsung_nasa
+    # TODO not needed?
     message: 0x4201
     name: Zone 1 Target Temp
     internal: true
     nasa_device_id: nasa_device_1
     id: zone_target_temp
   - platform: samsung_nasa
+    # TODO not needed?
     message: 0x42D6
     name: Zone 2 Target Temp
     internal: true
     nasa_device_id: nasa_device_1
     id: zone2_target_temp
+  - platform: samsung_nasa
+    message: 0x4252
+    name: DHW Max Temperature
+    nasa_device_id: nasa_device_1
+    id: hot_water_max_temp
+  - platform: samsung_nasa
+    message: 0x4253
+    name: DHW Min Temperature
+    nasa_device_id: nasa_device_1
+    id: hot_water_min_temp
   - platform: samsung_nasa
     message: 0x4235
     name: DHW Target Temperature
@@ -68,11 +80,13 @@ number:
     name: Water Law Outdoor Temp Low
     id: fsv_2012
   - platform: samsung_nasa
+    # TODO not needed?
     fsv: 2021
     nasa_device_id: nasa_device_1
     name: Water Law Floor Flow Temp High
     id: fsv_2021
   - platform: samsung_nasa
+    # TODO not needed?
     fsv: 2022
     nasa_device_id: nasa_device_1
     name: Water Law Floor Flow Temp Low
@@ -84,14 +98,16 @@ number:
     id: fsv_2031
   - platform: samsung_nasa
     fsv: 2032
-    nasa_device_id: nasa_device_1
     name: Water Law FCU Flow Temp Low
-    id: fsv_2032
-  #- platform: samsung_nasa
-  #  message: 0x4248
-  #  nasa_device_id: nasa_device_1
-  #  name: Water Law Offset
-  #  id: water_law_offset
+    nasa_device_id: nasa_device_1
+  - platform: samsung_nasa
+    message: 0x4248
+    name: Water Law Offset
+    nasa_device_id: nasa_device_1
+    id: water_law_offset
+    min_val: -5.0
+    max_val: 5.0
+    step: 0.5
 
 select:
   - platform: samsung_nasa
@@ -119,12 +135,14 @@ switch:
     internal: true
     id: dhw_power_switch
   - platform: samsung_nasa
+    # TODO not needed?
     message: 0x4000
     nasa_device_id: nasa_device_1
     name: Zone 1 Power
     internal: false
     id: zone_power
   - platform: samsung_nasa
+    # TODO not needed?
     message: 0x411E
     nasa_device_id: nasa_device_1
     name: Zone 2 Power
@@ -140,12 +158,14 @@ sensor:
     internal: true
     id: hot_water_current_temp
   - platform: samsung_nasa
+    # TODO not needed?
     message: 0x4203
     nasa_device_id: nasa_device_1
     name: "Zone 1 Indoor Temp"
     internal: true
     id: zone_room_temp
   - platform: samsung_nasa
+    # TODO not needed?
     message: 0x42D4
     nasa_device_id: nasa_device_1
     name: "Zone 2 Indoor Temp"
