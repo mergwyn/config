@@ -142,7 +142,7 @@ samsung_ac:
           message: 0x42E9
           device_class: volume_flow_rate
           state_class: measurement
-          unit_of_measurement: l/min
+          unit_of_measurement: L/min
           accuracy_decimals: 1
           filters:
             - multiply: 0.1
@@ -169,7 +169,8 @@ samsung_ac:
           id: heat_pump_heat_generated_last_min
           message: 0x4426
           device_class: energy
-          state_class: measurement
+          # state_class: measurement
+          state_class: total
           accuracy_decimals: 1
           unit_of_measurement: Wh
           filters:
