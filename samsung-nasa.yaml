@@ -1,6 +1,6 @@
 ---
 substitutions:
-  name: samsung-ashp  # TODO change to new host when it arrives
+  name: m5atom-dev
   friendly_name: ASHP
 
 <<: !include .base.yaml
@@ -100,14 +100,14 @@ number:
     fsv: 2032
     name: Water Law FCU Flow Temp Low
     nasa_device_id: nasa_device_1
-  - platform: samsung_nasa
-    message: 0x4248
-    name: Water Law Offset
-    nasa_device_id: nasa_device_1
-    id: water_law_offset
-    min_val: -5.0
-    max_val: 5.0
-    step: 0.5
+  # - platform: samsung_nasa
+  #   message: 0x4248
+  #   name: Water Law Offset
+  #   nasa_device_id: nasa_device_1
+  #   id: water_law_offset
+  #   min_val: -5.0
+  #   max_val: 5.0
+  #   step: 0.5
 
 select:
   - platform: samsung_nasa
@@ -206,7 +206,8 @@ sensor:
     message: 0x4089
     nasa_device_id: nasa_device_1
     name: Primary Water Pump
-    internal: false    id: primary_water_pump
+    internal: false
+    id: primary_water_pump
 
   # Error Status
   - platform: samsung_nasa
@@ -415,7 +416,7 @@ interval:
             - fsv_2021
             - fsv_2022
             - fsv_2031
-            - fsv_2032
+            # - fsv_2032
             - fsv_2091
             - fsv_2092
 
